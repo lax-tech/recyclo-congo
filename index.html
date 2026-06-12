@@ -1,995 +1,919 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <title>Recyclo-Congo - Site officiel</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="De l'énergie propre à petit prix" name="keywords" />
-    <meta content="De l'énergie propre à petit prix" name="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recyclo-Congo - Énergie propre et recyclage en RDC</title>
+    <meta
+      name="keywords"
+      content="Recyclo-Congo, recyclage RDC, makala bio, briquettes écologiques, biochar, énergie propre Kinshasa"
+    />
+    <meta
+      name="description"
+      content="Recyclo-Congo transforme les déchets biodégradables en solutions énergétiques propres, abordables et durables pour la RDC."
+    />
+    <meta property="og:image" content="./icon.svg" />
+    <meta property="og:title" content="Recyclo-Congo - Énergie propre et recyclage en RDC" />
+    <meta
+      property="og:description"
+      content="Des déchets valorisés en énergie propre pour protéger les forêts et soutenir les communautés congolaises."
+    />
 
-<meta name="og:image" content="./img/logo.PNG">
-<meta name="og:title" content="Recyclo-Congo - Site officiel">
-<meta name="og:description" content="De l'énergie propre à petit prix">
-
-    <!-- Favicon -->
-    <link href="./img/logo.PNG" rel="icon" />
-
-    <!-- Google Web Fonts -->
+    <link href="./icon.svg" rel="icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Roboto:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: "#0F4229",
+              leaf: "#348E38",
+              mint: "#E8F5E9",
+              earth: "#7A5C3E",
+              charcoal: "#10231A",
+            },
+            fontFamily: {
+              sans: ["Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
+              display: ["Bricolage Grotesque", "Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 24px 70px rgba(15, 66, 41, 0.14)",
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <style>
+      :root {
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-    <!-- Icon Font Stylesheet -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+      body {
+        font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+        font-feature-settings:
+          "liga" 1,
+          "kern" 1;
+        letter-spacing: -0.011em;
+      }
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+      h1,
+      h2,
+      h3,
+      .brand-title {
+        font-family: "Bricolage Grotesque", "Manrope", ui-sans-serif, system-ui, sans-serif;
+        letter-spacing: -0.045em;
+      }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+      h1,
+      h2 {
+        text-wrap: balance;
+      }
 
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
+      p,
+      li {
+        text-wrap: pretty;
+      }
+
+      ::selection {
+        background: rgba(52, 142, 56, 0.22);
+        color: #0f4229;
+      }
+
+      .grain-overlay {
+        background-image: radial-gradient(rgba(255, 255, 255, 0.2) 0.7px, transparent 0.7px);
+        background-size: 18px 18px;
+        opacity: 0.16;
+        mix-blend-mode: overlay;
+      }
+
+      .aurora {
+        animation: aurora 16s ease-in-out infinite alternate;
+        filter: blur(4px);
+      }
+
+      .hero-in {
+        animation: heroIn 1s var(--ease-out-expo) both;
+      }
+
+      .hero-in-delay-1 {
+        animation-delay: 0.12s;
+      }
+
+      .hero-in-delay-2 {
+        animation-delay: 0.24s;
+      }
+
+      .hero-in-delay-3 {
+        animation-delay: 0.36s;
+      }
+
+      .float-soft {
+        animation: floatSoft 7s ease-in-out infinite;
+      }
+
+      .slow-zoom {
+        animation: slowZoom 18s ease-in-out infinite alternate;
+      }
+
+      .shine {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .shine::after {
+        content: "";
+        position: absolute;
+        inset: -120% auto auto -45%;
+        width: 40%;
+        height: 320%;
+        transform: rotate(22deg);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+        transition: left 0.8s var(--ease-out-expo);
+      }
+
+      .shine:hover::after {
+        left: 120%;
+      }
+
+      .elevated-card {
+        transition:
+          transform 0.55s var(--ease-out-expo),
+          box-shadow 0.55s var(--ease-out-expo),
+          border-color 0.55s var(--ease-out-expo);
+      }
+
+      .elevated-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(52, 142, 56, 0.28);
+        box-shadow: 0 34px 90px rgba(15, 66, 41, 0.18);
+      }
+
+      .icon-lift {
+        transition:
+          transform 0.5s var(--ease-out-expo),
+          background-color 0.5s var(--ease-out-expo),
+          color 0.5s var(--ease-out-expo);
+      }
+
+      .group:hover .icon-lift,
+      .elevated-card:hover .icon-lift {
+        transform: translateY(-4px) rotate(-3deg) scale(1.04);
+        background-color: #348e38;
+        color: #ffffff;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.9s var(--ease-out-expo),
+          transform 0.9s var(--ease-out-expo);
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .stagger > * {
+        transition-delay: calc(var(--stagger-index, 0) * 90ms);
+      }
+
+      .od-card {
+        transition:
+          transform 0.55s var(--ease-out-expo),
+          filter 0.55s var(--ease-out-expo);
+      }
+
+      .od-card:hover {
+        transform: translateY(-6px) rotate(1deg) scale(1.02);
+        filter: saturate(1.08);
+      }
+
+      @keyframes heroIn {
+        from {
+          opacity: 0;
+          transform: translateY(28px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes floatSoft {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(0, -14px, 0);
+        }
+      }
+
+      @keyframes slowZoom {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.08);
+        }
+      }
+
+      @keyframes aurora {
+        from {
+          transform: translate3d(-4%, 2%, 0) scale(1);
+        }
+        to {
+          transform: translate3d(5%, -4%, 0) scale(1.08);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
   </head>
 
-  <body>
-    <!-- Spinner Start -->
-    <div
-      id="spinner"
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-    >
-      <div
-        class="spinner-border text-primary"
-        role="status"
-        style="width: 3rem; height: 3rem"
-      ></div>
-    </div>
-    <!-- Spinner End -->
-
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-dark text-light px-0 py-2">
-      <div class="row gx-0 d-none d-lg-flex">
-        <div class="col-lg-7 px-5 text-start">
-          <div class="h-100 d-inline-flex align-items-center me-4">
-            <span class="fa fa-phone-alt me-2"></span>
-            <span>+243 830 004 493</span>
-          </div>
-          <div class="h-100 d-inline-flex align-items-center">
-            <span class="far fa-envelope me-2"></span>
-            <span>contact@recyclordc.com</span>
-          </div>
+  <body class="overflow-x-hidden bg-white font-sans text-charcoal antialiased">
+    <div class="bg-forest text-sm text-white">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-3 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-6">
+          <a class="inline-flex items-center gap-2 text-white/90 transition hover:text-white" href="tel:+243830004493">
+            <i data-lucide="phone" class="h-4 w-4"></i>
+            +243 830 004 493
+          </a>
+          <a class="inline-flex items-center gap-2 text-white/90 transition hover:text-white" href="mailto:contact@recyclordc.com">
+            <i data-lucide="mail" class="h-4 w-4"></i>
+            contact@recyclordc.com
+          </a>
         </div>
-        <div class="col-lg-5 px-5 text-end">
-          <div class="h-100 d-inline-flex align-items-center mx-n2">
-            <span>Suivez-nous :</span>
-            <a class="btn btn-link text-light" href="https://www.facebook.com/profile.php?id=100086651474681&mibextid=ZbWKwL"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a class="btn btn-link text-light" href="https://x.com/makalabio?t=JRi9LDZiSne6UloGIX1fWw&s=08"
-              ><i class="fab fa-twitter"></i
-            ></a>
-            <a class="btn btn-link text-light" href="https://www.linkedin.com/company/makala-bio/"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-            <a class="btn btn-link text-light" href=""
-              ><i class="fab fa-instagram"></i
-            ></a>
-          </div>
+        <div class="flex items-center gap-3">
+          <span class="text-white/70">Suivez-nous</span>
+          <a
+            class="rounded-full p-1.5 text-white/80 transition hover:bg-white/10 hover:text-white"
+            href="https://www.facebook.com/profile.php?id=100086651474681&mibextid=ZbWKwL"
+            aria-label="Facebook Recyclo-Congo"
+          >
+            <i data-lucide="thumbs-up" class="h-4 w-4"></i>
+          </a>
+          <a
+            class="rounded-full p-1.5 text-white/80 transition hover:bg-white/10 hover:text-white"
+            href="https://x.com/makalabio?t=JRi9LDZiSne6UloGIX1fWw&s=08"
+            aria-label="X Recyclo-Congo"
+          >
+            <i data-lucide="message-circle" class="h-4 w-4"></i>
+          </a>
+          <a
+            class="rounded-full p-1.5 text-white/80 transition hover:bg-white/10 hover:text-white"
+            href="https://www.linkedin.com/company/makala-bio/"
+            aria-label="LinkedIn Recyclo-Congo"
+          >
+            <i data-lucide="briefcase-business" class="h-4 w-4"></i>
+          </a>
         </div>
       </div>
     </div>
-    <!-- Topbar End -->
 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-      <a
-        href="index.html"
-        class="navbar-brand d-flex align-items-center px-4 px-lg-5"
-      >
-        <h1 class="m-0">Recyclo-Congo</h1>
-      </a>
-      <button
-        type="button"
-        class="navbar-toggler me-4"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarCollapse"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-          <a href="index.html" class="nav-item nav-link active">Accueil</a>
-          <a href="about.html" class="nav-item nav-link">A propos</a>
-          <a href="products.html" class="nav-item nav-link">Nos produits</a
-          ><!-- 
-          <a href="project.html" class="nav-item nav-link">Notre impact</a>
-          <a href="contact.html" class="nav-item nav-link"
-            >Partenariats et Contacts</a
-          > -->
-        </div>
-        <a
-          href="contact.html"
-          class="btn btn-primary py-4 px-lg-4 rounded-0 d-none d-lg-block"
-          >Contactez-nous<i class="fa fa-arrow-right ms-3"></i
-        ></a>
-      </div>
-    </nav>
-    <!-- Navbar End -->
-
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
-      <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              class="w-100"
-              style="object-fit: cover; height: 80vh"
-              src="img/about1.jpg"
-              alt="Image"
-            />
-            <div class="carousel-caption">
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-lg-8">
-                    <h1 class="display-1 text-white mb-5 animated slideInDown">
-                      De l'énergie propre à petit prix
-                    </h1>
-                    <a href="about.html" class="btn btn-primary py-sm-3 px-sm-4"
-                      >En savoir plus</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
+    <header id="site-header" class="sticky top-0 z-50 border-b border-forest/10 bg-white/90 backdrop-blur-xl transition-shadow duration-300">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Navigation principale">
+        <a class="flex items-center gap-3" href="index.html" aria-label="Accueil Recyclo-Congo">
+          <img class="h-12 w-12 rounded-2xl object-cover shadow-sm" src="./icon.svg" alt="Logo Recyclo-Congo" />
+          <div>
+            <p class="text-lg font-extrabold tracking-tight text-forest">Recyclo-Congo</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.22em] text-leaf">Énergie renouvelée</p>
           </div>
-          <div class="carousel-item">
-            <img
-              class="w-100"
-              src="img/usine.jpg"
-              style="object-fit: cover; height: 80vh"
-              alt="Image"
-            />
-            <div class="carousel-caption">
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-lg-7">
-                    <h1 class="display-1 text-white mb-5 animated slideInDown">
-                      Transformons les déchets en énergie!
-                    </h1>
-                    <p>
-                      Recyclo-Congo , une lueur d'espoir pour notre planète.
-                    </p>
-                    <a href="about.html" class="btn btn-primary py-sm-3 px-sm-4"
-                      >En savoir plus</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </a>
         <button
-          class="carousel-control-prev"
+          id="menu-toggle"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-forest/10 text-forest lg:hidden"
           type="button"
-          data-bs-target="#header-carousel"
-          data-bs-slide="prev"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+          <span class="sr-only">Ouvrir le menu</span>
+          <i data-lucide="menu" class="h-5 w-5"></i>
         </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#header-carousel"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-    <!-- Carousel End -->
-
-    <!-- Top Feature Start -->
-    <div class="container-fluid top-feature py-5 pt-lg-0">
-      <div class="container py-5 pt-lg-0">
-        <div class="row gx-0">
-          <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-            <div
-              class="bg-white shadow d-flex align-items-center h-100 px-5"
-              style="min-height: 160px"
-            >
-              <div class="d-flex">
-                <div
-                  class="flex-shrink-0 btn-lg-square rounded-circle bg-light"
-                >
-                  <i class="fas fa-lightbulb text-primary"></i>
-                </div>
-                <div class="ps-3">
-                  <h4>Innovation</h4>
-                  <span
-                    >Solutions écologiques révolutionnaires pour un futur
-                    durable.</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-            <div
-              class="bg-white shadow d-flex align-items-center h-100 px-5"
-              style="min-height: 160px"
-            >
-              <div class="d-flex">
-                <div
-                  class="flex-shrink-0 btn-lg-square rounded-circle bg-light"
-                >
-                  <i class="fa fa-hourglass-half text-primary"></i>
-                </div>
-                <div class="ps-3">
-                  <h4>Durabilité</h4>
-                  <span
-                    >Alternatives énergétiques respectueuses pour préserver
-                    l'environnement.</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-            <div
-              class="bg-white shadow d-flex align-items-center h-100 px-5"
-              style="min-height: 160px"
-            >
-              <div class="d-flex">
-                <div
-                  class="flex-shrink-0 btn-lg-square rounded-circle bg-light"
-                >
-                  <i class="fa fa-bolt text-primary"></i>
-                </div>
-                <div class="ps-3">
-                  <h4>Efficacité</h4>
-                  <span>Produits performants et éco-responsables.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Top Feature End -->
-
-    <!-- About Start -->
-    <div class="container-xxl py-5">
-      <div class="container">
-        <div class="row g-5 align-items-end">
-          <div class="col-lg-3 col-md-5 wow fadeInUp" data-wow-delay="0.1s">
-            <img
-              class="img-fluid rounded"
-              style="height: 480px; object-fit: cover"
-              data-wow-delay="0.1s"
-              src="img/about.jpg"
-            />
-          </div>
-          <div class="col-lg-6 col-md-7 wow fadeInUp" data-wow-delay="0.3s">
-            <h1 class="display-1 text-primary mb-0">5</h1>
-            <p class="text-primary mb-4">Années d'expérience</p>
-            <h1 class="display-5 mb-4">À Propos de Nous</h1>
-            <p class="mb-4">
-              Chez Recyclo-Congo , nous redéfinissons l'énergie pour le futur.
-              Fondés en 2019, nous transformons les déchets en charbon
-              écologique, alliant innovation et durabilité. Notre mission :
-              offrir une énergie propre et abordable, tout en préservant nos
-              forêts et en luttant contre le changement climatique. Engagés
-              envers les Objectifs de Développement Durable, nous œuvrons pour
-              un monde où chaque action compte. Rejoignez-nous dans notre quête
-              pour un demain plus vert.
-              <br />
-              Recyclo-Congo , l'énergie renouvelée de la nature !
-            </p>
-            <a class="btn btn-primary py-3 px-4" href="about.html"
-              >En savoir plus</a
-            >
-          </div>
-          <div class="col-lg-3 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="row g-5">
-              <div class="col-12 col-sm-6 col-lg-12">
-                <div class="border-start ps-4">
-                  <i class="fa fa-route fa-3x text-primary mb-3"></i>
-                  <h4 class="mb-3">Vision</h4>
-                  <span
-                    >Transformer le marché énergétique congolais par des
-                    alternatives propres, améliorant la vie des individus et
-                    communautés, tout en œuvrant pour un avenir durable.</span
-                  >
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-12">
-                <div class="border-start ps-4">
-                  <i class="fa fa-map-signs fa-3x text-primary mb-3"></i>
-                  <h4 class="mb-3">Mission</h4>
-                  <span
-                    >Fournir une énergie propre et abordable, protégeant les
-                    écosystèmes tout en soutenant le développement
-                    durable..</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- About End -->
-
-    <!-- Facts Start -->
-    <div
-      class="container-fluid facts my-5 py-5"
-      data-parallax="scroll"
-      data-image-src="img/usine.jpg"
-    >
-      <div class="container py-5">
-        <p class="text-white text-center mb-0">Nos performances</p>
-        <h1 class="display-1 text-white text-center mb-0">
-          Recyclo-Congo , c'est:
-        </h1>
-        <br /><br />
-        <div class="row justify-content-center g-5">
-          <div
-            class="col-sm-6 col-lg-3 text-center wow fadeIn"
-            data-wow-delay="0.1s"
+        <div class="hidden items-center gap-8 lg:flex">
+          <a class="font-semibold text-leaf" href="index.html">Accueil</a>
+          <a class="font-semibold text-forest/75 transition hover:text-leaf" href="about.html">À propos</a>
+          <a class="font-semibold text-forest/75 transition hover:text-leaf" href="products.html">Nos produits</a>
+          <a
+            class="shine inline-flex items-center gap-2 rounded-full bg-leaf px-5 py-3 font-bold text-white shadow-lg shadow-leaf/20 transition hover:-translate-y-0.5 hover:bg-forest"
+            href="contact.html"
           >
-            <h1 class="display-4 text-white" data-toggle="counter-up">25</h1>
-            <span class="fs-5 fw-semi-bold text-light"
-              >Tonnes de déchets recyclés</span
-            >
-          </div>
-          <div
-            class="col-sm-6 col-lg-3 text-center wow fadeIn"
-            data-wow-delay="0.3s"
-          >
-            <h1 class="display-4 text-white" data-toggle="counter-up">25</h1>
-            <span class="fs-5 fw-semi-bold text-light"
-              >Tonnes de CO2 Evités
-            </span>
-          </div>
-          <div
-            class="col-sm-6 col-lg-3 text-center wow fadeIn"
-            data-wow-delay="0.5s"
-          >
-            <h1 class="display-4 text-white" data-toggle="counter-up">25</h1>
-            <span class="fs-5 fw-semi-bold text-light"
-              >Tonnes de briquettes produites</span
-            >
-          </div>
-          <div
-            class="col-sm-6 col-lg-3 text-center wow fadeIn"
-            data-wow-delay="0.7s"
-          >
-            <h1 class="display-4 text-white" data-toggle="counter-up">25</h1>
-            <span class="fs-5 fw-semi-bold text-light"
-              >Tonnes d'allumes feu produits</span
-            >
-          </div>
-          <div
-            class="col-sm-6 col-lg-3 text-center wow fadeIn"
-            data-wow-delay="0.7s"
-          >
-            <h1 class="display-4 text-white" data-toggle="counter-up">25</h1>
-            <span class="fs-5 fw-semi-bold text-light"
-              >Tonnes d’arbres epargné</span
-            >
-          </div>
+            Contactez-nous
+            <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+          </a>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="hidden border-t border-forest/10 bg-white px-5 py-4 lg:hidden">
+        <div class="mx-auto flex max-w-7xl flex-col gap-4">
+          <a class="font-semibold text-leaf" href="index.html">Accueil</a>
+          <a class="font-semibold text-forest/80" href="about.html">À propos</a>
+          <a class="font-semibold text-forest/80" href="products.html">Nos produits</a>
+          <a class="rounded-full bg-leaf px-5 py-3 text-center font-bold text-white" href="contact.html">Contactez-nous</a>
         </div>
       </div>
-    </div>
-    <!-- Facts End -->
+    </header>
 
-    <!-- Products Start -->
-    <div class="container-xxl py-5">
-      <div class="container">
-        <div
-          class="text-center mx-auto wow fadeInUp"
-          data-wow-delay="0.1s"
-          style="max-width: 500px"
-        >
-          <p class="fs-5 fw-bold text-primary">Nos produits</p>
-          <h1 class="display-5 mb-5">Nos Solutions Vertes</h1>
+    <main>
+      <section class="relative isolate overflow-hidden bg-forest text-white">
+        <div class="absolute inset-0 -z-10">
+          <img class="slow-zoom h-full w-full object-cover opacity-35" src="img/about1.jpg" alt="Production écologique Recyclo-Congo" />
+          <div class="absolute inset-0 bg-gradient-to-br from-forest via-forest/90 to-leaf/70"></div>
+          <div class="grain-overlay absolute inset-0"></div>
+          <div class="aurora absolute -left-20 top-16 h-72 w-72 rounded-full bg-mint/20"></div>
+          <div class="aurora absolute -bottom-28 right-10 h-96 w-96 rounded-full bg-leaf/30" style="animation-delay: -5s"></div>
         </div>
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item rounded d-flex h-100">
-              <div class="service-img rounded">
-                <img class="img-fluid" src="img/produits/makala.jpeg" alt="" />
-              </div>
-              <div class="service-text rounded p-5">
-                <div class="btn-square rounded-circle mx-auto mb-3">
-                  <img
-                    class="img-fluid"
-                    src="img/produits/Makala-Bio.png"
-                    alt="Icon"
-                  />
-                </div>
-                <h4 class="mb-3">Makala bio</h4>
-                <p class="mb-4">
-                  Briquettes éco-responsables fabriquées à partir de déchets
-                  biodégradables, offrant une alternative durable au charbon
-                  traditionnel.
-                </p>
-                <!-- <a class="btn btn-sm" href=""
-                  ><i class="fa fa-plus text-primary me-2"></i>Read More</a
-                > -->
-              </div>
+        <div class="mx-auto grid max-w-7xl gap-12 px-5 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-28">
+          <div class="flex flex-col justify-center">
+            <div class="hero-in mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-mint backdrop-blur">
+              <i data-lucide="recycle" class="h-4 w-4"></i>
+              Leader congolais de la valorisation des déchets
             </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="service-item rounded d-flex h-100">
-              <div class="service-img rounded">
-                <img class="img-fluid" src="img/produits/img7.jpg" alt="" />
-              </div>
-              <div class="service-text rounded p-5">
-                <div class="btn-square rounded-circle mx-auto mb-3">
-                  <img
-                    class="img-fluid"
-                    src="img/produits/Wakisha.png"
-                    alt="Icon"
-                  />
-                </div>
-                <h4 class="mb-3">Allume Feu</h4>
-                <p class="mb-4">
-                  Mélange innovant de carton broyé, sciure et huiles usagées,
-                  conçu pour allumer vos feux rapidement et efficacement.
-                </p>
-                <!-- <a class="btn btn-sm" href=""
-                  ><i class="fa fa-plus text-primary me-2"></i>Read More</a
-                > -->
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="service-item rounded d-flex h-100">
-              <div class="service-img rounded">
-                <img class="img-fluid" src="img/produits/Bio-char.jpg" alt="" />
-              </div>
-              <div class="service-text rounded p-5">
-                <div class="btn-square rounded-circle mx-auto mb-3">
-                  <img
-                    class="img-fluid"
-                    src="img/produits/Bio-char.jpg"
-                    alt="Icon"
-                  />
-                </div>
-                <h4 class="mb-3">Bio-char</h4>
-                <p class="mb-4">
-                  Amendement de sol riche issu de la pyrolyse de biomasse,
-                  améliorant la fertilité des sols et séquestrant le carbone
-                  atmosphérique.
-                </p>
-                <!-- <a class="btn btn-sm" href=""
-                  ><i class="fa fa-plus text-primary me-2"></i>Read More</a
-                > -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Products End -->
-
-    <br /><br /><br /><br />
-    <div class="bg-grey">
-      <!-- Features Start -->
-      <div class="container-xxl py-5">
-        <div class="container">
-          <div class="row g-5 align-items-center">
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-              <p class="fs-5 fw-bold text-primary">
-                Notre Impact Environnemental
-              </p>
-              <h1 class="display-5 mb-4">Implication aux ODD</h1>
-              <p class="mb-4">
-                Recyclo-Congo s'engage activement dans les ODD des Nations
-                Unies, ciblant principalement les objectifs 7, 13, et 17 pour
-                l'énergie propre, l'action climatique, et les partenariats. Nous
-                contribuons aussi aux objectifs 9 et 12, favorisant l'innovation
-                et une consommation responsable.
-              </p>
-              <a class="btn btn-primary py-3 px-4" href="contact.html"
-                >Contactez-nous</a
-              >
-            </div>
-            <div class="col-lg-6">
-              <div class="row g-4 align-items-center justify-content-center">
-                <div class="col-6 wow fadeIn" data-wow-delay="0.3s">
-                  <div
-                    class="text-center rounded py-5 px-4"
-                    style="
-                      box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-                      background-image: url('./img/odd/7.png');
-                      background-position: center;
-                      background-size: cover;
-                      height: 150px;
-                      width: 150px;
-                    "
-                  ></div>
-                </div>
-                <div class="col-6 wow fadeIn" data-wow-delay="0.5s">
-                  <div
-                    class="text-center rounded py-5 px-4"
-                    style="
-                      box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-                      background-image: url('./img/odd/13.png');
-                      background-position: center;
-                      background-size: cover;
-                      height: 150px;
-                      width: 150px;
-                    "
-                  ></div>
-                </div>
-                <div class="col-6 wow fadeIn" data-wow-delay="0.7s">
-                  <div
-                    class="text-center rounded py-5 px-4"
-                    style="
-                      box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-                      background-image: url('./img/odd/9.png');
-                      background-position: center;
-                      background-size: cover;
-                      height: 150px;
-                      width: 150px;
-                    "
-                  ></div>
-                </div>
-                <div class="col-6 wow fadeIn" data-wow-delay="0.7s">
-                  <div
-                    class="text-center rounded py-5 px-4"
-                    style="
-                      box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-                      background-image: url('./img/odd/17.png');
-                      background-position: center;
-                      background-size: cover;
-                      height: 150px;
-                      width: 150px;
-                    "
-                  ></div>
-                </div>
-                <div class="col-6 wow fadeIn" data-wow-delay="0.7s">
-                  <div
-                    class="text-center rounded py-5 px-4"
-                    style="
-                      box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-                      background-image: url('./img/odd/12.png');
-                      background-position: center;
-                      background-size: cover;
-                      height: 150px;
-                      width: 150px;
-                    "
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Features End -->
-
-    <br /><br /><br /><br />
-
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-            <p class="fs-5 fw-bold text-primary">Témoignages & Partenaires</p>
-            <h1 class="display-5 mb-5">Ce que nos clients disent de nous !</h1>
-            <p class="mb-4">
-              Découvrez comment Recyclo-Congo transforme des vies et protège
-              l'environnement à travers les mots de ceux qui ont directement
-              bénéficié de nos innovations durables. Lisez leurs histoires
-              inspirantes.
+            <h1 class="hero-in hero-in-delay-1 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-7xl">
+              Des déchets transformés en énergie propre pour la RDC.
+            </h1>
+            <p class="hero-in hero-in-delay-2 mt-6 max-w-2xl text-lg leading-8 text-white/82">
+              Recyclo-Congo produit des briquettes écologiques, allume-feu et bio-char à partir de déchets biodégradables pour réduire la pression sur les forêts, soutenir les ménages et accélérer la transition énergétique.
             </p>
-            <a class="btn btn-primary py-3 px-4" href="contact.html"
-              >Contactez-nous</a
-            >
-          </div>
-          <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="owl-carousel testimonial-carousel">
-              <div class="testimonial-item">
-                <img
-                  class="img-fluid rounded mb-3"
-                  src="img/team/default-avatar.jpg"
-                  alt=""
-                />
-                <p class="fs-5">
-                  Grâce à Recyclo-Congo, notre communauté bénéficie d'une source
-                  d'énergie propre et abordable. Leurs briquettes
-                  éco-responsables ont transformé notre quotidien, réduisant la
-                  pollution et améliorant notre qualité de vie.
-                </p>
-                <h4>Jean-Paul Kabila</h4>
-                <span>CEO</span>
-              </div>
-              <div class="testimonial-item">
-                <img
-                  class="img-fluid rounded mb-3"
-                  src="img/team/default-avatar.jpg"
-                  alt=""
-                />
-                <p class="fs-5">
-                  En tant qu'agricultrice, le Bio-char de Recyclo-Congo a
-                  révolutionné ma pratique. Mes récoltes sont plus abondantes,
-                  et je contribue à la lutte contre le changement climatique.
-                  Une véritable innovation pour notre agriculture!
-                </p>
-                <h4>Marie Tshibangu</h4>
-                <span>Agricultrice</span>
-              </div>
-              <div class="testimonial-item">
-                <img
-                  class="img-fluid rounded mb-3"
-                  src="img/team/default-avatar.jpg"
-                  alt=""
-                />
-                <p class="fs-5">
-                  Les allumes feu de Recyclo-Congo ont simplifié la préparation
-                  de mes repas. Ils s'allument rapidement, même sous la pluie.
-                  Je suis fier de soutenir une entreprise qui valorise les
-                  déchets et protège notre environnement.
-                </p>
-                <h4>Antoine Mwamba</h4>
-                <span>Ménageure</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Testimonial End -->
-
-    <!-- Service Start -->
-    <div class="bg-grey py-5">
-      <div class="container-xxl py-5">
-        <div class="container">
-          <div
-            class="text-center mx-auto wow fadeInUp"
-            data-wow-delay="0.1s"
-            style="max-width: 500px"
-          >
-            <p class="fs-5 fw-bold text-primary">Nos partenaires</p>
-            <h1 class="display-5 mb-5">Nos Partenaires de Changement</h1>
-          </div>
-          <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="service-item rounded d-flex h-100">
-                <div class="service-img rounded">
-                  <img
-                    class="img-fluid"
-                    src="img/partners/Logo_uncdf.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="service-text rounded p-5">
-                  <div class="btn-square rounded-circle mx-auto mb-3">
-                    <img
-                      class="img-fluid"
-                      src="img/partners/Logo_uncdf.jpg"
-                      alt="Icon"
-                    />
-                  </div>
-                  <h4 class="mb-3">UNCDF</h4>
-                  <p class="mb-4"></p>
-                  <a class="btn btn-sm" href=""
-                    ><i class="fa fa-search text-primary me-2"></i>Visiter</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div class="service-item rounded d-flex h-100">
-                <div class="service-img rounded">
-                  <img class="img-fluid" src="img/partners/usaid.png" alt="" />
-                </div>
-                <div class="service-text rounded p-5">
-                  <div class="btn-square rounded-circle mx-auto mb-3">
-                    <img
-                      class="img-fluid"
-                      src="img/partners/usaid.png"
-                      alt="Icon"
-                    />
-                  </div>
-                  <h4 class="mb-3">USAID</h4>
-                  <p class="mb-4"></p>
-                  <a class="btn btn-sm" href=""
-                    ><i class="fa fa-search text-primary me-2"></i>Visiter</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-              <div class="service-item rounded d-flex h-100">
-                <div class="service-img rounded">
-                  <img
-                    class="img-fluid"
-                    src="img/partners/Elean-rdc.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="service-text rounded p-5">
-                  <div class="btn-square rounded-circle mx-auto mb-3">
-                    <img
-                      class="img-fluid"
-                      src="img/partners/Elean-rdc.jpg"
-                      alt="Icon"
-                    />
-                  </div>
-                  <h4 class="mb-3">ELAN</h4>
-                  <p class="mb-4"></p>
-                  <a class="btn btn-sm" href=""
-                    ><i class="fa fa-search text-primary me-2"></i>Visiter</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="service-item rounded d-flex h-100">
-                <div class="service-img rounded">
-                  <img
-                    class="img-fluid"
-                    src="img/partners/Bracongo.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="service-text rounded p-5">
-                  <div class="btn-square rounded-circle mx-auto mb-3">
-                    <img
-                      class="img-fluid"
-                      src="img/partners/Bracongo.jpg"
-                      alt="Icon"
-                    />
-                  </div>
-                  <h4 class="mb-3">Bra Congo</h4>
-                  <p class="mb-4"></p>
-                  <a class="btn btn-sm" href=""
-                    ><i class="fa fa-search text-primary me-2"></i>Visiter</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-              <div class="service-item rounded d-flex h-100">
-                <div class="service-img rounded">
-                  <img
-                    class="img-fluid"
-                    src="img/partners/Total-Energie.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="service-text rounded p-5">
-                  <div class="btn-square rounded-circle mx-auto mb-3">
-                    <img
-                      class="img-fluid"
-                      src="img/partners/Total-Energie.jpg"
-                      alt="Icon"
-                    />
-                  </div>
-                  <h4 class="mb-3">Total Energie</h4>
-                  <p class="mb-4"></p>
-                  <a class="btn btn-sm" href=""
-                    ><i class="fa fa-search text-primary me-2"></i>Visiter</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Service End -->
-
-    <!-- Footer Start -->
-    <div
-      class="container-fluid bg-dark text-light footer py-5 wow fadeIn"
-      data-wow-delay="0.1s"
-    >
-      <div class="container py-5">
-        <div class="row g-5">
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-white mb-4">Retrouvez-nous</h4>
-            <p class="mb-2">
-              <i class="fa fa-map-marker-alt me-3"></i>Concession Procoki, 01
-              avenue de l'OUA, quatier Basoko, Commune de Ngaliema, Kinshasa -
-              RDC
-            </p>
-            <p class="mb-2">
-              <i class="fa fa-phone-alt me-3"></i>+243 830 004 493
-            </p>
-            <p class="mb-2">
-              <i class="fa fa-envelope me-3"></i>contact@recyclordc.com
-            </p>
-            <div class="d-flex pt-2">
-              <a
-                class="btn btn-square btn-outline-light rounded-circle me-2"
-                href="https://x.com/makalabio?t=JRi9LDZiSne6UloGIX1fWw&s=08"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                class="btn btn-square btn-outline-light rounded-circle me-2"
-                href="https://www.facebook.com/profile.php?id=100086651474681&mibextid=ZbWKwL"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                class="btn btn-square btn-outline-light rounded-circle me-2"
-                href="https://www.linkedin.com/company/makala-bio/"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-white mb-4">Nos Produits</h4>
-            <a class="btn btn-link" href="#">Makala Bio</a>
-            <a class="btn btn-link" href="#">Allume Feu</a>
-            <a class="btn btn-link" href="#">Bio-char</a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-white mb-4">Liens rapides</h4>
-            <a class="btn btn-link" href="about.html">A propos</a>
-            <a class="btn btn-link" href="products.html">Nos Produits</a>
-            <a class="btn btn-link" href="contact.html">Contacts</a>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <h4 class="text-white mb-4">Newsletter</h4>
-            <p>
-              Inscrivez-vous à notre newsletter pour rester informé(e) des
-              dernières actualités, innovations et initiatives durables de
-              Recyclo-Congo!
-            </p>
-            <div class="position-relative w-100">
-              <input
-                class="form-control bg-light border-light w-100 py-3 ps-4 pe-5"
-                type="text"
-                placeholder="Your email"
-              />
-              <button
-                type="button"
-                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
-              >
-                SignUp
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            &copy; <a class="border-bottom" href="#">Recyclo-Congo </a>
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-            , All Right Reserved.
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Copyright End -->
-
-    <div>
-      <div style="padding: 20px; color: silver; background-color: #041a10">
-        <style>
-          .lax-logo {
-            margin-right: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2px;
-          }
-
-          .lax-logo span {
-            display: inline-block;
-            width: 50px;
-            background-color: #0000008f;
-            border-radius: 50%;
-            height: 20px;
-          }
-
-          .lax-logo img {
-            display: inline-block;
-            margin-bottom: -15px;
-            animation: rotate 10s infinite 0s linear;
-          }
-
-          .lax-logo:hover img {
-            animation: none;
-            transform: scale(1.2);
-            filter: contrast(200%);
-          }
-
-          @keyframes rotate {
-            from {
-              transform: rotateZ(0deg);
-            }
-            to {
-              transform: rotateZ(360deg);
-            }
-          }
-        </style>
-        <div
-          class="div"
-          style="display: flex; justify-content: center; width: 100%"
-        >
-          <div style="padding: 0px 0; display: flex; align-items: center">
-            <div>
-              <a class="lax-logo" href="https://laxtech.pro">
-                <img
-                  src="./img/icone 2L.png"
-                  width="50"
-                  alt="Lax Technologies logo"
-                />
-                <span></span>
+            <div class="hero-in hero-in-delay-3 mt-8 flex flex-col gap-4 sm:flex-row">
+              <a class="shine inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-bold text-forest shadow-xl transition hover:-translate-y-0.5 hover:bg-mint" href="contact.html">
+                Devenir partenaire
+                <i data-lucide="handshake" class="h-5 w-5"></i>
+              </a>
+              <a class="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 px-6 py-4 font-bold text-white transition hover:bg-white/10" href="products.html">
+                Découvrir nos produits
+                <i data-lucide="package-check" class="h-5 w-5"></i>
               </a>
             </div>
+          </div>
+          <div class="hero-in hero-in-delay-2 relative" data-parallax-card>
+            <div class="float-soft rounded-[2rem] border border-white/15 bg-white/10 p-4 shadow-2xl backdrop-blur">
+              <img class="h-[440px] w-full rounded-[1.5rem] object-cover" src="img/usine.jpg" alt="Unité de production Recyclo-Congo à Kinshasa" />
+            </div>
+            <div class="absolute -bottom-8 left-5 right-5 rounded-3xl bg-white p-5 text-forest shadow-soft sm:left-auto sm:w-80">
+              <div class="flex items-start gap-4">
+                <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-mint text-leaf">
+                  <i data-lucide="leaf" class="h-6 w-6"></i>
+                </span>
+                <div>
+                  <p class="text-sm font-semibold uppercase tracking-[0.18em] text-leaf">Impact local</p>
+                  <p class="mt-1 font-bold">Une énergie abordable qui protège les écosystèmes congolais.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="relative z-10 -mt-1 bg-white px-5 py-10 lg:px-8">
+        <div class="stagger mx-auto grid max-w-7xl gap-4 md:grid-cols-3">
+          <article class="reveal elevated-card rounded-3xl border border-forest/10 bg-white p-6 shadow-soft">
+            <div class="icon-lift mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-mint text-leaf">
+              <i data-lucide="lightbulb" class="h-6 w-6"></i>
+            </div>
+            <h2 class="text-xl font-bold text-forest">Innovation</h2>
+            <p class="mt-3 leading-7 text-charcoal/70">Des procédés simples, utiles et adaptés au contexte énergétique congolais.</p>
+          </article>
+          <article class="reveal elevated-card rounded-3xl border border-forest/10 bg-white p-6 shadow-soft">
+            <div class="icon-lift mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-mint text-leaf">
+              <i data-lucide="trees" class="h-6 w-6"></i>
+            </div>
+            <h2 class="text-xl font-bold text-forest">Durabilité</h2>
+            <p class="mt-3 leading-7 text-charcoal/70">Des alternatives au charbon traditionnel pour préserver les forêts et le climat.</p>
+          </article>
+          <article class="reveal elevated-card rounded-3xl border border-forest/10 bg-white p-6 shadow-soft">
+            <div class="icon-lift mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-mint text-leaf">
+              <i data-lucide="zap" class="h-6 w-6"></i>
+            </div>
+            <h2 class="text-xl font-bold text-forest">Efficacité</h2>
+            <p class="mt-3 leading-7 text-charcoal/70">Des produits pratiques, performants et pensés pour les ménages comme les professionnels.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reveal overflow-hidden px-5 py-20 lg:px-8" id="about">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div class="relative">
+            <img class="h-[520px] w-full rounded-[2rem] object-cover shadow-soft" src="img/about.jpg" alt="Équipe Recyclo-Congo et production de solutions écologiques" />
+            <div class="float-soft absolute -bottom-8 right-6 rounded-3xl bg-leaf p-6 text-white shadow-xl">
+              <p class="text-5xl font-extrabold">5</p>
+              <p class="mt-1 max-w-36 text-sm font-semibold uppercase tracking-[0.14em]">années d'expérience</p>
+            </div>
+          </div>
+          <div>
+            <p class="inline-flex items-center gap-2 rounded-full bg-mint px-4 py-2 text-sm font-bold uppercase tracking-[0.18em] text-leaf">
+              <i data-lucide="factory" class="h-4 w-4"></i>
+              À propos
+            </p>
+            <h2 class="mt-5 max-w-3xl text-3xl font-extrabold tracking-tight text-forest sm:text-5xl">
+              Nous bâtissons une économie circulaire au service des familles, des villes et des forêts.
+            </h2>
+            <p class="mt-6 text-lg leading-8 text-charcoal/72">
+              Fondée en 2019, Recyclo-Congo transforme les déchets biodégradables en charbon écologique, allume-feu et bio-char. Notre mission est de rendre l’énergie propre plus accessible tout en créant une chaîne de valeur locale autour du recyclage.
+            </p>
+            <div class="mt-8 grid gap-5 sm:grid-cols-2">
+              <div class="elevated-card rounded-3xl bg-mint/70 p-6">
+                <i data-lucide="route" class="h-8 w-8 text-leaf"></i>
+                <h3 class="mt-4 text-xl font-bold text-forest">Vision</h3>
+                <p class="mt-3 leading-7 text-charcoal/70">Transformer le marché énergétique congolais avec des alternatives propres et accessibles.</p>
+              </div>
+              <div class="elevated-card rounded-3xl bg-forest p-6 text-white">
+                <i data-lucide="map" class="h-8 w-8 text-mint"></i>
+                <h3 class="mt-4 text-xl font-bold">Mission</h3>
+                <p class="mt-3 leading-7 text-white/76">Fournir une énergie propre et abordable, protéger les écosystèmes et soutenir le développement durable.</p>
+              </div>
+            </div>
+            <a class="shine mt-8 inline-flex items-center gap-2 rounded-full bg-leaf px-6 py-4 font-bold text-white shadow-lg shadow-leaf/20 transition hover:bg-forest" href="about.html">
+              En savoir plus
+              <i data-lucide="arrow-right" class="h-5 w-5"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal relative overflow-hidden bg-forest px-5 py-20 text-white lg:px-8" id="impact">
+        <div class="aurora absolute -right-20 top-10 h-72 w-72 rounded-full bg-mint/10"></div>
+        <div class="grain-overlay absolute inset-0"></div>
+        <div class="mx-auto max-w-7xl">
+          <div class="max-w-3xl">
+            <p class="font-bold uppercase tracking-[0.24em] text-mint">Nos performances</p>
+            <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">Des indicateurs qui racontent notre impact.</h2>
+            <p class="mt-5 text-lg leading-8 text-white/75">
+              Chaque tonne valorisée limite les déchets, réduit la dépendance au charbon traditionnel et ouvre de nouvelles opportunités locales.
+            </p>
+          </div>
+          <div class="stagger mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            <article class="reveal elevated-card rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <i data-lucide="recycle" class="h-8 w-8 text-mint"></i>
+              <p class="mt-5 text-4xl font-extrabold" data-counter="25">0</p>
+              <p class="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/70">tonnes de déchets recyclés</p>
+            </article>
+            <article class="reveal elevated-card rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <i data-lucide="cloud-sun" class="h-8 w-8 text-mint"></i>
+              <p class="mt-5 text-4xl font-extrabold" data-counter="25">0</p>
+              <p class="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/70">tonnes de CO2 évitées</p>
+            </article>
+            <article class="reveal elevated-card rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <i data-lucide="flame-kindling" class="h-8 w-8 text-mint"></i>
+              <p class="mt-5 text-4xl font-extrabold" data-counter="25">0</p>
+              <p class="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/70">tonnes de briquettes produites</p>
+            </article>
+            <article class="reveal elevated-card rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <i data-lucide="flame" class="h-8 w-8 text-mint"></i>
+              <p class="mt-5 text-4xl font-extrabold" data-counter="25">0</p>
+              <p class="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/70">tonnes d’allume-feu produits</p>
+            </article>
+            <article class="reveal elevated-card rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur">
+              <i data-lucide="tree-pine" class="h-8 w-8 text-mint"></i>
+              <p class="mt-5 text-4xl font-extrabold" data-counter="25">0</p>
+              <p class="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/70">tonnes d’arbres épargnées</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal bg-white px-5 py-20 lg:px-8" id="products">
+        <div class="mx-auto max-w-7xl">
+          <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div class="max-w-2xl">
+              <p class="font-bold uppercase tracking-[0.24em] text-leaf">Nos produits</p>
+              <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-forest sm:text-5xl">Des solutions vertes pour cuisiner, produire et fertiliser.</h2>
+            </div>
+            <a class="inline-flex w-fit items-center gap-2 rounded-full border border-forest/15 px-5 py-3 font-bold text-forest transition hover:-translate-y-0.5 hover:border-leaf hover:text-leaf hover:shadow-lg" href="products.html">
+              Voir tous les produits
+              <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </a>
+          </div>
+          <div class="stagger mt-12 grid gap-6 lg:grid-cols-3">
+            <article class="reveal elevated-card group overflow-hidden rounded-[2rem] border border-forest/10 bg-white shadow-soft">
+              <div class="relative h-64 overflow-hidden">
+                <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="img/produits/makala.jpeg" alt="Briquettes écologiques Makala Bio" />
+                <span class="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-sm font-bold text-leaf">Cuisson propre</span>
+              </div>
+              <div class="p-7">
+                <div class="icon-lift flex h-14 w-14 items-center justify-center rounded-2xl bg-mint text-leaf">
+                  <i data-lucide="flame-kindling" class="h-7 w-7"></i>
+                </div>
+                <h3 class="mt-5 text-2xl font-extrabold text-forest">Makala Bio</h3>
+                <p class="mt-3 leading-7 text-charcoal/70">Briquettes éco-responsables fabriquées à partir de déchets biodégradables, alternative durable au charbon traditionnel.</p>
+              </div>
+            </article>
+            <article class="reveal elevated-card group overflow-hidden rounded-[2rem] border border-forest/10 bg-white shadow-soft">
+              <div class="relative h-64 overflow-hidden">
+                <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="img/produits/img7.jpg" alt="Allume-feu écologique Wakisha" />
+                <span class="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-sm font-bold text-leaf">Allumage rapide</span>
+              </div>
+              <div class="p-7">
+                <div class="icon-lift flex h-14 w-14 items-center justify-center rounded-2xl bg-mint text-leaf">
+                  <i data-lucide="sparkles" class="h-7 w-7"></i>
+                </div>
+                <h3 class="mt-5 text-2xl font-extrabold text-forest">Allume-feu</h3>
+                <p class="mt-3 leading-7 text-charcoal/70">Mélange innovant de carton broyé, sciure et huiles usagées pour allumer les feux rapidement et efficacement.</p>
+              </div>
+            </article>
+            <article class="reveal elevated-card group overflow-hidden rounded-[2rem] border border-forest/10 bg-white shadow-soft">
+              <div class="relative h-64 overflow-hidden">
+                <img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="img/produits/Bio-char.jpg" alt="Bio-char pour améliorer les sols" />
+                <span class="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-sm font-bold text-leaf">Agriculture durable</span>
+              </div>
+              <div class="p-7">
+                <div class="icon-lift flex h-14 w-14 items-center justify-center rounded-2xl bg-mint text-leaf">
+                  <i data-lucide="sprout" class="h-7 w-7"></i>
+                </div>
+                <h3 class="mt-5 text-2xl font-extrabold text-forest">Bio-char</h3>
+                <p class="mt-3 leading-7 text-charcoal/70">Amendement issu de la pyrolyse de biomasse pour améliorer la fertilité des sols et séquestrer le carbone.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal bg-mint/60 px-5 py-20 lg:px-8">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <p class="font-bold uppercase tracking-[0.24em] text-leaf">Notre impact environnemental</p>
+            <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-forest sm:text-5xl">Une contribution directe aux Objectifs de Développement Durable.</h2>
+            <p class="mt-5 text-lg leading-8 text-charcoal/72">
+              Recyclo-Congo agit sur l’énergie propre, l’action climatique, l’innovation, la consommation responsable et les partenariats. Notre modèle relie déchets, énergie, agriculture et communautés.
+            </p>
+            <a class="shine mt-8 inline-flex items-center gap-2 rounded-full bg-forest px-6 py-4 font-bold text-white transition hover:bg-leaf" href="contact.html">
+              Construire un partenariat
+              <i data-lucide="users-round" class="h-5 w-5"></i>
+            </a>
+          </div>
+          <div class="stagger grid grid-cols-2 gap-4 sm:grid-cols-3">
+            <img class="od-card reveal rounded-3xl bg-white p-3 shadow-soft" src="./img/odd/7.png" alt="ODD 7 - Énergie propre et d'un coût abordable" />
+            <img class="od-card reveal rounded-3xl bg-white p-3 shadow-soft" src="./img/odd/13.png" alt="ODD 13 - Mesures relatives à la lutte contre les changements climatiques" />
+            <img class="od-card reveal rounded-3xl bg-white p-3 shadow-soft" src="./img/odd/9.png" alt="ODD 9 - Industrie, innovation et infrastructure" />
+            <img class="od-card reveal rounded-3xl bg-white p-3 shadow-soft" src="./img/odd/17.png" alt="ODD 17 - Partenariats pour la réalisation des objectifs" />
+            <img class="od-card reveal rounded-3xl bg-white p-3 shadow-soft sm:col-start-2" src="./img/odd/12.png" alt="ODD 12 - Consommation et production responsables" />
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal bg-white px-5 py-20 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mx-auto max-w-3xl text-center">
+            <p class="font-bold uppercase tracking-[0.24em] text-leaf">Partenaires</p>
+            <h2 class="mt-4 text-3xl font-extrabold tracking-tight text-forest sm:text-5xl">Des partenaires de changement à nos côtés.</h2>
+          </div>
+          <div class="stagger mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            <a class="reveal elevated-card group rounded-3xl border border-forest/10 bg-white p-6 text-center shadow-soft transition hover:-translate-y-1" href="contact.html">
+              <img class="mx-auto h-24 w-full object-contain" src="img/partners/Logo_uncdf.jpg" alt="Logo UNCDF" />
+              <p class="mt-5 font-bold text-forest group-hover:text-leaf">UNCDF</p>
+            </a>
+            <a class="reveal elevated-card group rounded-3xl border border-forest/10 bg-white p-6 text-center shadow-soft transition hover:-translate-y-1" href="contact.html">
+              <img class="mx-auto h-24 w-full object-contain" src="img/partners/usaid.png" alt="Logo USAID" />
+              <p class="mt-5 font-bold text-forest group-hover:text-leaf">USAID</p>
+            </a>
+            <a class="reveal elevated-card group rounded-3xl border border-forest/10 bg-white p-6 text-center shadow-soft transition hover:-translate-y-1" href="contact.html">
+              <img class="mx-auto h-24 w-full object-contain" src="img/partners/Elean-rdc.jpg" alt="Logo ELAN RDC" />
+              <p class="mt-5 font-bold text-forest group-hover:text-leaf">ELAN</p>
+            </a>
+            <a class="reveal elevated-card group rounded-3xl border border-forest/10 bg-white p-6 text-center shadow-soft transition hover:-translate-y-1" href="contact.html">
+              <img class="mx-auto h-24 w-full object-contain" src="img/partners/Bracongo.jpg" alt="Logo Bracongo" />
+              <p class="mt-5 font-bold text-forest group-hover:text-leaf">Bracongo</p>
+            </a>
+            <a class="reveal elevated-card group rounded-3xl border border-forest/10 bg-white p-6 text-center shadow-soft transition hover:-translate-y-1" href="contact.html">
+              <img class="mx-auto h-24 w-full object-contain" src="img/partners/Total-Energie.jpg" alt="Logo Total Énergie" />
+              <p class="mt-5 font-bold text-forest group-hover:text-leaf">Total Énergie</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal relative overflow-hidden bg-forest px-5 py-20 text-white lg:px-8">
+        <div class="grain-overlay absolute inset-0"></div>
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <div>
+            <p class="font-bold uppercase tracking-[0.24em] text-mint">Témoignages</p>
+            <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl">Des solutions qui changent le quotidien.</h2>
+            <p class="mt-5 text-lg leading-8 text-white/75">
+              Des ménages aux agriculteurs, nos produits rendent la transition écologique concrète et accessible.
+            </p>
+          </div>
+          <div class="stagger grid gap-5 md:grid-cols-3">
+            <blockquote class="reveal elevated-card rounded-3xl bg-white p-6 text-charcoal">
+              <i data-lucide="quote" class="h-8 w-8 text-leaf"></i>
+              <p class="mt-5 leading-7 text-charcoal/75">Les briquettes éco-responsables ont réduit la fumée et simplifié notre quotidien.</p>
+              <footer class="mt-6">
+                <p class="font-bold text-forest">Jean-Paul Kabila</p>
+                <p class="text-sm text-charcoal/55">Client communautaire</p>
+              </footer>
+            </blockquote>
+            <blockquote class="reveal elevated-card rounded-3xl bg-white p-6 text-charcoal">
+              <i data-lucide="quote" class="h-8 w-8 text-leaf"></i>
+              <p class="mt-5 leading-7 text-charcoal/75">Le Bio-char améliore mes sols et m’aide à produire autrement.</p>
+              <footer class="mt-6">
+                <p class="font-bold text-forest">Marie Tshibangu</p>
+                <p class="text-sm text-charcoal/55">Agricultrice</p>
+              </footer>
+            </blockquote>
+            <blockquote class="reveal elevated-card rounded-3xl bg-white p-6 text-charcoal">
+              <i data-lucide="quote" class="h-8 w-8 text-leaf"></i>
+              <p class="mt-5 leading-7 text-charcoal/75">Les allume-feu sont rapides, pratiques et soutiennent une entreprise locale.</p>
+              <footer class="mt-6">
+                <p class="font-bold text-forest">Antoine Mwamba</p>
+                <p class="text-sm text-charcoal/55">Client ménage</p>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="reveal px-5 py-20 lg:px-8">
+        <div class="relative mx-auto overflow-hidden rounded-[2rem] bg-gradient-to-br from-leaf to-forest p-8 text-white shadow-soft sm:p-12 lg:max-w-7xl lg:p-16">
+          <div class="aurora absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/20"></div>
+          <div class="grain-overlay absolute inset-0"></div>
+          <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <h2
-                style="
-                  font-size: 14px;
-                  line-height: 100%;
-                  margin: 0;
-                  color: aliceblue;
-                "
-              >
-                Developed by
-                <a class="blue-text" href="https://laxtech.pro"
-                  >Lax technologies S.A.S</a
-                >
+              <p class="font-bold uppercase tracking-[0.24em] text-mint">Passer à l’action</p>
+              <h2 class="mt-4 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">
+                Vous cherchez une solution de recyclage, d’énergie propre ou de partenariat en RDC ?
               </h2>
-              <sub>Leader de la Tech en Afrique</sub>
+              <p class="mt-5 max-w-2xl text-lg leading-8 text-white/78">
+                Parlons de vos besoins, de votre territoire et des impacts que nous pouvons créer ensemble.
+              </p>
+            </div>
+            <a class="shine inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-extrabold text-forest shadow-xl transition hover:-translate-y-0.5 hover:bg-mint" href="contact.html">
+              Contacter Recyclo-Congo
+              <i data-lucide="send" class="h-5 w-5"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-charcoal text-white">
+      <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+        <div>
+          <div class="flex items-center gap-3">
+            <img class="h-12 w-12 rounded-2xl object-cover" src="./icon.svg" alt="Logo Recyclo-Congo" />
+            <div>
+              <p class="text-lg font-extrabold">Recyclo-Congo</p>
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-mint/80">Énergie propre</p>
+            </div>
+          </div>
+          <p class="mt-5 leading-7 text-white/68">Transformer les déchets en énergie propre, abordable et utile aux communautés congolaises.</p>
+        </div>
+        <div>
+          <h3 class="font-bold">Retrouvez-nous</h3>
+          <div class="mt-5 space-y-4 text-white/70">
+            <p class="flex gap-3">
+              <i data-lucide="map-pin" class="mt-1 h-5 w-5 shrink-0 text-mint"></i>
+              Concession Procoki, 01 avenue de l'OUA, quartier Basoko, Ngaliema, Kinshasa - RDC
+            </p>
+            <a class="flex gap-3 transition hover:text-white" href="tel:+243830004493">
+              <i data-lucide="phone" class="h-5 w-5 shrink-0 text-mint"></i>
+              +243 830 004 493
+            </a>
+            <a class="flex gap-3 transition hover:text-white" href="mailto:contact@recyclordc.com">
+              <i data-lucide="mail" class="h-5 w-5 shrink-0 text-mint"></i>
+              contact@recyclordc.com
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-bold">Liens rapides</h3>
+          <div class="mt-5 grid gap-3 text-white/70">
+            <a class="transition hover:text-white" href="about.html">À propos</a>
+            <a class="transition hover:text-white" href="products.html">Nos produits</a>
+            <a class="transition hover:text-white" href="contact.html">Contact</a>
+            <a class="transition hover:text-white" href="#impact">Notre impact</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-bold">Newsletter</h3>
+          <p class="mt-5 leading-7 text-white/68">Recevez nos actualités, innovations et initiatives durables.</p>
+          <form class="mt-5 flex overflow-hidden rounded-full bg-white p-1" action="contact.html">
+            <label class="sr-only" for="newsletter-email">Adresse email</label>
+            <input
+              id="newsletter-email"
+              class="min-w-0 flex-1 px-4 text-sm text-charcoal outline-none"
+              type="email"
+              name="email"
+              placeholder="Votre email"
+            />
+            <button class="rounded-full bg-leaf px-4 py-3 text-sm font-bold text-white transition hover:bg-forest" type="submit">
+              S’inscrire
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="border-t border-white/10">
+        <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+          <p class="text-center">&copy; Recyclo-Congo. Tous droits réservés.</p>
+        </div>
+      </div>
+      <div>
+        <div style="padding: 20px; color: silver; background-color: #041a10">
+          <style>
+            .lax-logo {
+              margin-right: 10px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 2px;
+            }
+
+            .lax-logo span {
+              display: inline-block;
+              width: 50px;
+              background-color: #0000008f;
+              border-radius: 50%;
+              height: 20px;
+            }
+
+            .lax-logo img {
+              display: inline-block;
+              margin-bottom: -15px;
+              animation: rotate 10s infinite 0s linear;
+            }
+
+            .lax-logo:hover img {
+              animation: none;
+              transform: scale(1.2);
+              filter: contrast(200%);
+            }
+
+            @keyframes rotate {
+              from {
+                transform: rotateZ(0deg);
+              }
+              to {
+                transform: rotateZ(360deg);
+              }
+            }
+          </style>
+          <div
+            class="div"
+            style="display: flex; justify-content: center; width: 100%"
+          >
+            <div style="padding: 0px 0; display: flex; align-items: center">
+              <div>
+                <a class="lax-logo" href="https://laxtech.pro">
+                  <img
+                    src="./icon.svg"
+                    width="50"
+                    alt="Lax Technologies logo"
+                  />
+                  <span></span>
+                </a>
+              </div>
+              <div>
+                <h2
+                  style="
+                    font-size: 14px;
+                    line-height: 100%;
+                    margin: 0;
+                    color: aliceblue;
+                  "
+                >
+                  Developed by
+                  <a class="blue-text" href="https://laxtech.pro"
+                    >Lax technologies S.A.S</a
+                  >
+                </h2>
+                <sub>Leader de la Tech en Afrique</sub>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Back to Top -->
-    <a
-      href="#"
-      class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"
-      ><i class="bi bi-arrow-up"></i
-    ></a>
+    </footer>
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/parallax/parallax.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 hidden h-12 w-12 items-center justify-center rounded-full bg-leaf text-white shadow-xl transition hover:-translate-y-1 hover:bg-forest"
+      type="button"
+      aria-label="Retour en haut"
+    >
+      <i data-lucide="arrow-up" class="h-5 w-5"></i>
+    </button>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const backToTop = document.getElementById("back-to-top");
+        const siteHeader = document.getElementById("site-header");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        menuToggle?.addEventListener("click", function () {
+          const isOpen = !mobileMenu.classList.contains("hidden");
+          mobileMenu.classList.toggle("hidden", isOpen);
+          menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        });
+
+        window.addEventListener("scroll", function () {
+          siteHeader?.classList.toggle("shadow-lg", window.scrollY > 16);
+          backToTop.classList.toggle("hidden", window.scrollY <= 400);
+          backToTop.classList.toggle("flex", window.scrollY > 400);
+        });
+
+        backToTop?.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        document.querySelectorAll(".stagger").forEach(function (group) {
+          Array.from(group.children).forEach(function (child, index) {
+            child.style.setProperty("--stagger-index", index);
+          });
+        });
+
+        const revealObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.16, rootMargin: "0px 0px -60px 0px" }
+        );
+
+        document.querySelectorAll(".reveal").forEach(function (element) {
+          revealObserver.observe(element);
+        });
+
+        if (!reducedMotion) {
+          document.querySelectorAll("[data-parallax-card]").forEach(function (card) {
+            card.addEventListener("pointermove", function (event) {
+              const rect = card.getBoundingClientRect();
+              const x = (event.clientX - rect.left) / rect.width - 0.5;
+              const y = (event.clientY - rect.top) / rect.height - 0.5;
+              card.style.transform = `perspective(900px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-4px)`;
+            });
+
+            card.addEventListener("pointerleave", function () {
+              card.style.transform = "";
+            });
+          });
+        }
+
+        const counters = document.querySelectorAll("[data-counter]");
+        const animateCounter = function (counter) {
+          const target = Number(counter.dataset.counter || "0");
+          const duration = 1200;
+          const startedAt = performance.now();
+
+          const tick = function (now) {
+            const progress = Math.min((now - startedAt) / duration, 1);
+            counter.textContent = String(Math.floor(progress * target));
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              counter.textContent = String(target);
+            }
+          };
+
+          requestAnimationFrame(tick);
+        };
+
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && !entry.target.dataset.animated) {
+                entry.target.dataset.animated = "true";
+                animateCounter(entry.target);
+              }
+            });
+          },
+          { threshold: 0.45 }
+        );
+
+        counters.forEach(function (counter) {
+          observer.observe(counter);
+        });
+      });
+    </script>
   </body>
 </html>
